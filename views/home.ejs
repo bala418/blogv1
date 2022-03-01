@@ -8,8 +8,8 @@
             <%=x.title%>
         </h1>
         <p>
-            <%= x.body.substring(0,100)+"..." %>
-                <% var y=x.title%>
+            <%= x.content.substring(0,100)+"..." %>
+                <% var y=x._id%>
                     <a href="/posts/<%= y %> ">Read more</a>
         </p>
 

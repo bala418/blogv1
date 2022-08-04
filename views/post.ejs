@@ -3,8 +3,14 @@
         <%= post.title %>
     </h1>
     <p>
-        <%= post.content %>
+        <%
+        var lines = post.content.split("\n");
+        for (var i = 0; i < lines.length; i++) {
+            %>
+            <%= lines[i] %>
+            <br>
+            <%
+        }
+        %>
     </p>
-
-
     <%- include partials/footer -%>

@@ -50,7 +50,6 @@ app.get("/compose", function (req, res) {
 
 app.get("/posts/:postName", function (req, res) {
   var reqID = req.params.postName;
-  console.log(reqID);
   Blog.findOne({ _id: reqID }, (err, item) => {
     if (err) {
       console.log(err);
@@ -67,15 +66,13 @@ app.post("/", function (req, res) {
     content: req.body.postContent,
   });
 
-  console.log(post);
-
   post.save((err) => {
     if (!err) {
       res.redirect("/");
+    } else {
+      res.redirect("/");
     }
   });
-
-  res.redirect("/");
 });
 
 app.listen(process.env.PORT || 3000, function () {

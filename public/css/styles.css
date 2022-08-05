@@ -46,3 +46,10 @@
     width: 400px;
     height: 400px;
 }
+
+.headerlink{
+    text-align: center;
+    /* color: #fff; */
+    font-size: 22px;
+    font-weight: bold;
+}

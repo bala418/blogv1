@@ -5,7 +5,9 @@
     </p>
     <% postss.forEach(function(x){ %>
         <h1>
-            <%=x.title%>
+            <% var y=x._id%>
+            <a href="/posts/<%= y %> " class="headerlink"> <%=x.title%></a>
+           
         </h1>
         <p>
             <%= x.content.substring(0,100)+"..." %>

@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 // const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const md = require("markdown-it")();
 
 const homeStartingContent =
   "Hi, so I am Bala Subramaniam. I am from Chennai, India. Well I am an enthusiastic web developer and trying out other technologies and domains in the computer software field as well. I started solving algorithmic problems for cracking interviews and started loving it. And some of my hobbies are playing chess and reading books. Well if you found this blog, you are awesome.I plan to keep on updating this blog with my knowledge and experience.I hope you enjoy my blog.";
@@ -34,7 +35,7 @@ app.get("/", function (req, res) {
     } else {
       res.render("home", { postss: items, hs: homeStartingContent });
     }
-  });
+  }).sort({ createdAt: -1 });
 });
 
 app.get("/about", function (req, res) {
@@ -55,7 +56,10 @@ app.get("/posts/:postName", function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render("post", { post: item });
+      var x = item.content;
+      var y = md.render(x);
+      console.log(y);
+      res.render("post", { post: item, content: y });
     }
   });
 });
@@ -65,6 +69,7 @@ app.post("/", function (req, res) {
   const post = new Blog({
     title: req.body.postTitle,
     content: req.body.postContent,
+    createdAt: new Date(),
   });
 
   post.save((err) => {

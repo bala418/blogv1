@@ -3,6 +3,7 @@ const express = require("express");
 // const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const md = require("markdown-it")();
+const formatDistanceToNow = require("date-fns/formatDistanceToNow");
 
 const homeStartingContent =
   "Hi, so I am Bala Subramaniam. I am from Chennai, India. Well I am an enthusiastic web developer and trying out other technologies and domains in the computer software field as well. I started solving algorithmic problems for cracking interviews and started loving it. And some of my hobbies are playing chess and reading books. Well if you found this blog, you are awesome.I plan to keep on updating this blog with my knowledge and experience.I hope you enjoy my blog.";
@@ -32,9 +33,22 @@ const Blog = mongoose.model("Blog", blogSchema);
 app.get("/", function (req, res) {
   Blog.find({}, (err, items) => {
     if (err) {
-      // console.log(err);
+      console.log(err);
     } else {
-      res.render("home", { postss: items, hs: homeStartingContent });
+      const page = req.query.page || 1;
+      const limit = req.query.limit || 5;
+
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+      const resultItems = items.slice(startIndex, endIndex);
+
+      res.render("home", {
+        postss: resultItems,
+        hs: homeStartingContent,
+        formatDistanceToNow: formatDistanceToNow,
+      });
+
+      // res.json(resultItems);
     }
   }).sort({ createdAt: -1 });
 });
@@ -63,6 +77,11 @@ app.get("/posts/:postName", function (req, res) {
       res.render("post", { post: item, content: y });
     }
   });
+});
+
+// get all other routes
+app.get("*", function (req, res) {
+  res.redirect("/");
 });
 
 app.post("/", function (req, res) {

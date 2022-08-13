@@ -4,16 +4,28 @@
         <%= hs %>
     </p>
     <% postss.forEach(function(x){ %>
-        <h1>
-            <% var y=x._id%>
-            <a href="/posts/<%= y %> " class="headerlink"> <%=x.title%></a>
-           
-        </h1>
-        <p class = "postpreview">
-            <%= x.content.substring(0,100)+"..." %>
-                <% var y=x._id%>
-                    <a href="/posts/<%= y %> " >Read more</a>
-        </p>
+        <div class="post">
+            <div class="heading">
+                <div>
+                    <h1>
+                        <% var y=x._id%>
+                        <a href="/posts/<%= y %> " class="headerlink"> <%=x.title%></a>
+            
+                    </h1>
+                </div>
+                <div>
+                    <h3>
+                        <% var z=formatDistanceToNow(new Date(x.createdAt), { addSuffix: true })%>
+                        <%= z %>
+                    </h3>
+                </div>
+            </div>
+            <p class = "postpreview">
+                <%= x.content.substring(0,100)+"..." %>
+                    <% var y=x._id%>
+                        <a href="/posts/<%= y %> " >Read more</a>
+            </p>
+        </div>
 
         <%}) %>
             <%- include partials/footer -%>

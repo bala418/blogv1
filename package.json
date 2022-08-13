@@ -16,6 +16,7 @@
     "express": "^4.16.3",
     "lodash": "^4.17.21",
     "markdown-it": "^13.0.1",
-    "mongoose": "^6.2.4"
+    "mongoose": "^6.2.4",
+    "serve-favicon": "^2.5.0"
   }
 }

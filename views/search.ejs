@@ -1,0 +1,38 @@
+<%- include partials/header -%>
+<h1>Search</h1>
+<!-- search button with a text box input -->
+
+<%- include partials/searchform -%>
+<!--  -->
+<% postss.forEach(function(x){ %>
+<div class="post">
+  <div class="heading">
+    <div>
+      <h1>
+        <% var y=x._id%>
+        <a href="/posts/<%= y %> " class="headerlink"> <%=x.title%> </a>
+      </h1>
+    </div>
+    <div>
+      <h3>
+        <% var z=formatDistanceToNow(new Date(x.createdAt), { addSuffix: true
+        })%> <%= z %>
+      </h3>
+    </div>
+  </div>
+  <p class="postpreview">
+    <%= x.content.substring(0,100)+"..." %> <% var y=x._id%>
+    <a href="/posts/<%= y %> ">Read more</a>
+  </p>
+</div>
+
+<%}) %>
+<div>
+  <% if(postss.length==0){ %>
+  <p>No posts found</p>
+  <%} %>
+</div>
+
+<!-- Footer -->
+
+<%- include partials/footer -%>

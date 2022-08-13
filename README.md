@@ -2,7 +2,7 @@
 <table>
 <tr>
 <td>
-  A blog about my interests and hobbies. Built while learning Node.js, Express.js, and MongoDB.
+  A blog about my interests and hobbies. Built while learning Node.js, Express.js, and MongoDB. Markdown is used for the blog posts.
 </td>
 </tr>
 </table>
@@ -25,9 +25,9 @@ Here is a working live demo :  [bala418-blog](https://bala418-blog.herokuapp.com
 
 ### Landing Page
 
-![](https://i.imgur.com/jbOnxxR.jpg)
+![](https://i.imgur.com/aUgDRY1.jpg)
 
 ### Post Page
 
-![](https://i.imgur.com/uwfxmnK.jpg)
+![](https://imgur.com/1W0sORS.jpg)
 

@@ -9,10 +9,10 @@
             <a href="/posts/<%= y %> " class="headerlink"> <%=x.title%></a>
            
         </h1>
-        <p>
+        <p class = "postpreview">
             <%= x.content.substring(0,100)+"..." %>
                 <% var y=x._id%>
-                    <a href="/posts/<%= y %> ">Read more</a>
+                    <a href="/posts/<%= y %> " >Read more</a>
         </p>
 
         <%}) %>

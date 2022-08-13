@@ -24,6 +24,7 @@ mongoose.connect(process.env.MONGO_URI);
 const blogSchema = new mongoose.Schema({
   title: String,
   content: String,
+  createdAt: { type: Date, default: Date.now },
 });
 
 const Blog = mongoose.model("Blog", blogSchema);
@@ -31,7 +32,7 @@ const Blog = mongoose.model("Blog", blogSchema);
 app.get("/", function (req, res) {
   Blog.find({}, (err, items) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
     } else {
       res.render("home", { postss: items, hs: homeStartingContent });
     }
@@ -54,18 +55,18 @@ app.get("/posts/:postName", function (req, res) {
   var reqID = req.params.postName;
   Blog.findOne({ _id: reqID }, (err, item) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
     } else {
       var x = item.content;
       var y = md.render(x);
-      console.log(y);
+      // console.log(y);
       res.render("post", { post: item, content: y });
     }
   });
 });
 
 app.post("/", function (req, res) {
-  console.log(req.body);
+  // console.log(req.body);
   const post = new Blog({
     title: req.body.postTitle,
     content: req.body.postContent,

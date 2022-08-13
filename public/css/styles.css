@@ -1,3 +1,4 @@
+body{ min-height:100vh; margin:0; position:relative; }
 .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
@@ -16,11 +17,12 @@
 }
 
 .footer-padding {
+    margin-top: 20px;
 	padding-bottom: 60px;
 }
 
 .footer {
-	position: fixed;
+	position: absolute;
 	text-align: center;
 	bottom: 0;
 	width: 100%;
@@ -50,6 +52,11 @@
 .headerlink{
     text-align: center;
     /* color: #fff; */
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
+}
+
+p{
+    font-size: 16px;
+    /* font-weight: bold; */
 }

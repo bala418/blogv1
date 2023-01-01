@@ -19,7 +19,7 @@
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Demo
-Here is a working live demo :  [bala418-blog](https://bala418-blog.herokuapp.com/)
+Here is a working live demo :  [bala418-blog](https://bala418-blog.up.railway.app/)
 
 ## Site
 

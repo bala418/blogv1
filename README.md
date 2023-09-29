@@ -18,8 +18,7 @@
 - Run the app by using `node app.js`.
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Demo
-Here is a working live demo :  [bala418-blog]([https://bala418-blog.up.railway.app/](https://bala418-blog.cyclic.cloud/))
+Here is a working live demo: [bala418-blog](https://bala418-blog.up.railway.app/)
 
 ## Site
 
